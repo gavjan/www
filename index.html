@@ -6,183 +6,183 @@
     <link rel="stylesheet" href="assets/css/main.css">
     <link rel="stylesheet" href="assets/css/select.css">
 </head>
-<body style="background-color: rgb(2, 34, 66);"></body>
+<body style="background-color: rgb(2, 34, 66);">
 
 
 
-<div class="flex-container">
-    <div>
-        <div class="sidenav">
-            <a href="#home">HOME</a>
-            <a href="#home">SEARCH FLIGHTS</a>
-            <a href="#news">ONLINE CHECK IN</a>
-            <a href="#news">MY BOOKINGS</a>
-            <button class="dropdown-btn">HELP ▾ 
-              <i class="fa fa-caret-down"></i>
-            </button>
-            <div class="dropdown-container">
-                <a href="#">📞 CALL NOW</a>
-                <a href="#">💬 ONLINE CHAT</a>
-                <a href="#">📧 MAIL</a>
-                <a href="#">🙋 FAQ</a>
+    <div class="flex-container">
+        <div>
+            <div class="sidenav">
+                <a href="#home">HOME</a>
+                <a href="#home">SEARCH FLIGHTS</a>
+                <a href="#news">ONLINE CHECK IN</a>
+                <a href="#news">MY BOOKINGS</a>
+                <button class="dropdown-btn">HELP ▾ 
+                <i class="fa fa-caret-down"></i>
+                </button>
+                <div class="dropdown-container">
+                    <a href="#">📞 CALL NOW</a>
+                    <a href="#">💬 ONLINE CHAT</a>
+                    <a href="#">📧 MAIL</a>
+                    <a href="#">🙋 FAQ</a>
+                </div>
             </div>
+            <script src='assets/js/dropdown.js'> </script>
         </div>
-        <script src='assets/js/dropdown.js'> </script>
-    </div>
 
 
 
 
 
-    <div style="flex-grow: 1">
-        <img src="assets/img/plik.jpg" alt="logo firmy">
-        <h1><span style="color: black; ">List of Flights</span></h1>
-        <p id="pierwszy" class="pierwszy"><span style="color: black; "> List of flights for Chopin airport </p>
-        <p id="drugi" class="drugi"><span style="color: black; "> Click the flight number to see the flight description </p>
-        <table class="table">
-            <!-- flight number, from, to, date, time -->
-            <tr>
-                <th>Flight</th>
-                <th>From</th>
-                <th>To</th>
-                <th>Date</th>
-                <th>Time</th>
-            </tr>
-            <tr>
-                <td>
-                    <a href="flight.html"> LO707 </a>
-                </td>
-                <td>Warsaw</td>
-                <td>Krakow</td>
-                <td>Sep 14</td>
-                <td>14:15</td>
-            </tr>
-            <tr>
-                <td >
-                    <a href="flight.html"> LO829 </a>
-                </td>
-                <td>Warsaw</td>
-                <td>Yerevan</td>
-                <td>Sep 14</td>
-                <td>14:45</td>
-            </tr>
-            <tr>
-                <td >
-                    <a href="flight.html"> LO320 </a>
-                </td>
-                <td>Warsaw</td>
-                <td>Cologne</td>
-                <td>Sep 14</td>
-                <td>15:30</td>
-            </tr>
-            <tr>
-                <td >
-                    <a href="flight.html"> LO780 </a>
-                </td>
-                <td>Warsaw</td>
-                <td>Vilnus</td>
-                <td>Sep 15</td>
-                <td>10:15</td>
-            </tr>
-            <tr>
-                <td >
-                    <a href="flight.html"> LO235 </a>
-                </td>
-                <td>Warsaw</td>
-                <td>London</td>
-                <td>Sep 15</td>
-                <td>11:30</td>
-            </tr>
-            <tr id=super_lot>
-                <td>SUPER</td>
-                <td>FLIGHT!</td>
-            </tr>
-            <tr>
-                <td >
-                    <a href="flight.html"> LO420 </a>
-                </td>
-                <td>Warsaw</td>
-                <td>Rome</td>
-                <td>Sep 15</td>
-                <td>12:45</td>
-            </tr>
-        </table>
-    </div>
-    <div>
-        <h1> Changed Flights</h1>
-        <table class="bad_flights">
-            <tr>
-                <th>Flight</th>
-                <th>Change</th>
-            </tr>
-            <tr>
-                <td class="flight">
-                    <a href="flight.html"> LO707 </a>
-                </td>
-                <td class="cancaled">Canceled</td>
-            </tr>
-            <tr>
-                <td class="flight">
-                    <a href="flight.html"> LO829 </a>
-                </td>
-                <td class ="delayed">Delayed(25m)</td>
-            </tr>
-            <tr>
-                <td class="flight">
-                    <a href="flight.html"> LO235 </a>
-                </td>
-                <td class="slightly_delayed">Delayed(5m)</td>
-            </tr>
-        </table>
-        <br>
-        <hr>
-        <h1> Buy a ticket</h1>
-        <form action="/action_page.php" id="carform">
-            <label for="fname">Firstname:</label>
-            <input class="name_field" type="text" id="fname" name="fname" > 
-            <br><br>
-            <label for="fname">Lastname:</label>
-            <input class="name_field" type="text" id="fname" name="fname">
-            <br><br>
-        
-            <label for="from">From:</label>
-        
-            <select class="select-css" id="from" name="from" form="carform">
-                <option value="warsaw">Warsaw</option>
-                <option value="krakow">Krakow</option>
-                <option value="yerevan">Yerevan</option>
-                <option value="cologne">Cologne</option>
-                <option value="vilnus">Vilnus</option>
-                <option value="london">London</option>
-                <option value="rome">Rome</option>
-            </select>
+        <div style="flex-grow: 1">
+            <img src="assets/img/plik.jpg" alt="logo firmy">
+            <h1><span style="color: black; ">List of Flights</span></h1>
+            <p id="pierwszy" class="pierwszy"><span style="color: black; "> List of flights for Chopin airport </span></p>
+            <p id="drugi" class="drugi"><span style="color: black; "> Click the flight number to see the flight description </span></p>
+            <table class="table">
+                <!-- flight number, from, to, date, time -->
+                <tr>
+                    <th>Flight</th>
+                    <th>From</th>
+                    <th>To</th>
+                    <th>Date</th>
+                    <th>Time</th>
+                </tr>
+                <tr>
+                    <td>
+                        <a href="flight.html"> LO707 </a>
+                    </td>
+                    <td>Warsaw</td>
+                    <td>Krakow</td>
+                    <td>Sep 14</td>
+                    <td>14:15</td>
+                </tr>
+                <tr>
+                    <td >
+                        <a href="flight.html"> LO829 </a>
+                    </td>
+                    <td>Warsaw</td>
+                    <td>Yerevan</td>
+                    <td>Sep 14</td>
+                    <td>14:45</td>
+                </tr>
+                <tr>
+                    <td >
+                        <a href="flight.html"> LO320 </a>
+                    </td>
+                    <td>Warsaw</td>
+                    <td>Cologne</td>
+                    <td>Sep 14</td>
+                    <td>15:30</td>
+                </tr>
+                <tr>
+                    <td >
+                        <a href="flight.html"> LO780 </a>
+                    </td>
+                    <td>Warsaw</td>
+                    <td>Vilnus</td>
+                    <td>Sep 15</td>
+                    <td>10:15</td>
+                </tr>
+                <tr>
+                    <td >
+                        <a href="flight.html"> LO235 </a>
+                    </td>
+                    <td>Warsaw</td>
+                    <td>London</td>
+                    <td>Sep 15</td>
+                    <td>11:30</td>
+                </tr>
+                <tr id=super_lot>
+                    <td>SUPER</td>
+                    <td>FLIGHT!</td>
+                </tr>
+                <tr>
+                    <td >
+                        <a href="flight.html"> LO420 </a>
+                    </td>
+                    <td>Warsaw</td>
+                    <td>Rome</td>
+                    <td>Sep 15</td>
+                    <td>12:45</td>
+                </tr>
+            </table>
+        </div>
+        <div>
+            <h1> Changed Flights</h1>
+            <table class="bad_flights">
+                <tr>
+                    <th>Flight</th>
+                    <th>Change</th>
+                </tr>
+                <tr>
+                    <td class="flight">
+                        <a href="flight.html"> LO707 </a>
+                    </td>
+                    <td class="cancaled">Canceled</td>
+                </tr>
+                <tr>
+                    <td class="flight">
+                        <a href="flight.html"> LO829 </a>
+                    </td>
+                    <td class ="delayed">Delayed(25m)</td>
+                </tr>
+                <tr>
+                    <td class="flight">
+                        <a href="flight.html"> LO235 </a>
+                    </td>
+                    <td class="slightly_delayed">Delayed(5m)</td>
+                </tr>
+            </table>
             <br>
-            <label for="dest">To:</label>
-            <select class="select-css" id="dest" name="dest">
-                <option value="krakow">Krakow</option>
-                <option value="warsaw">Warsaw</option>
-                <option value="yerevan">Yerevan</option>
-                <option value="cologne">Cologne</option>
-                <option value="vilnus">Vilnus</option>
-                <option value="london">London</option>
-                <option value="rome">Rome</option>
-            </select>
-            <br>
-            <label for="date">Date:</label>
-            <br>
-            <input type="date" id="date" name="date">     
-            <br>
-            <input type="reset" class="action_button" value="Reset">
-            <input type="submit" class="action_button" value="Buy">
+            <hr>
+            <h1> Buy a ticket</h1>
+            <form action="/action_page.php" id="carform">
+                <label for="fname">Firstname:</label>
+                <input class="name_field" type="text" id="fname" name="fname" > 
+                <br><br>
+                <label for="fname">Lastname:</label>
+                <input class="name_field" type="text" id="lname" name="fname">
+                <br><br>
             
+                <label for="from">From:</label>
             
-          </form>
-          
-    </div> 
-</div> 
-<footer>
-    <p>Made by: Someone Someoneski</p>
-    <p>Mail: <a href="mailto:someone@example.com">someone@example.com</a>.</p>
-  </footer>
+                <select class="select-css" id="from" name="from" form="carform">
+                    <option value="warsaw">Warsaw</option>
+                    <option value="krakow">Krakow</option>
+                    <option value="yerevan">Yerevan</option>
+                    <option value="cologne">Cologne</option>
+                    <option value="vilnus">Vilnus</option>
+                    <option value="london">London</option>
+                    <option value="rome">Rome</option>
+                </select>
+                <br>
+                <label for="dest">To:</label>
+                <select class="select-css" id="dest" name="dest">
+                    <option value="krakow">Krakow</option>
+                    <option value="warsaw">Warsaw</option>
+                    <option value="yerevan">Yerevan</option>
+                    <option value="cologne">Cologne</option>
+                    <option value="vilnus">Vilnus</option>
+                    <option value="london">London</option>
+                    <option value="rome">Rome</option>
+                </select>
+                <br>
+                <label for="date">Date:</label>
+                <br>
+                <input type="date" id="date" name="date">     
+                <br>
+                <input type="reset" class="action_button" value="Reset">
+                <input type="submit" class="action_button" value="Buy">
+                
+                
+            </form>
+            
+        </div> 
+    </div>
+    <footer>
+        <p>Made by: Someone Someoneski</p>
+        <p>Mail: <a href="mailto:someone@example.com">someone@example.com</a>.</p>
+    </footer>
 </body>
 </html>
