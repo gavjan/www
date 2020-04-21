@@ -151,11 +151,11 @@ input {
 
 
 
-#sidenav-flex {
+.sidenav-flex {
   flex-basis:1000px;
 }
 @media screen and (min-width: 2000px) {
-  #sidenav-flex {
+  .sidenav-flex {
     flex-basis:600px;
   }
 }
