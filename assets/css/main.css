@@ -142,18 +142,22 @@ input {
   
     padding: 0px;
   }
-
+  
+  .sidenav-flex {
+    flex-basis:1000px;
+  }
   @media screen and (max-width: 980px) {
     .flex-container {
       flex-direction: column;
+    }
+    .sidenav-flex {
+      flex-basis:100%;
     }
   }
 
 
 
-.sidenav-flex {
-  flex-basis:1000px;
-}
+
 @media screen and (min-width: 2000px) {
   .sidenav-flex {
     flex-basis:600px;
