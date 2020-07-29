@@ -1,21 +1,23 @@
 function overlay_on() {
+    const errText = document.getElementById("overlay_text") as HTMLDivElement;
     const fname = document.getElementById("first_name") as HTMLInputElement;
     const lname = document.getElementById("last_name") as HTMLInputElement;
     let correct = true;
-    if(fname.value === "" || lname.value === "")
+
+    if(fname.value === "" || lname.value === "") {
+        errText.innerHTML += "\t- Provided name is invalid<br>";
         correct = false;
+    }
 
 
     const dateInput = document.getElementById("dateInput") as HTMLInputElement;
-    let dateEntered = new Date(dateInput.value) as Date;
-    let nowDate = new Date(Date.now()) as Date;
+    const dateEntered = new Date(dateInput.value) as Date;
+    const nowDate = new Date(Date.now()) as Date;
 
-    if(isNaN(dateEntered.getTime()))
+    if(isNaN(dateEntered.getTime()) || nowDate > dateEntered) {
         correct = false;
-
-    if(nowDate > dateEntered)
-        correct = false;
-
+        errText.innerHTML += "- Entered date is invalid<br>";
+    }
 
 
     if(!correct)
@@ -46,6 +48,8 @@ setTimeout(() => {
   // flight date earlier than the current one
 function overlay_off() {
     document.getElementById("overlay").style.display = "none";
+    const errText = document.getElementById("overlay_text") as HTMLDivElement;
+    errText.innerHTML = "Error:<br>";
 }
 
 function resetForm() {

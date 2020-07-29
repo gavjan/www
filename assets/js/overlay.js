@@ -1,16 +1,19 @@
 function overlay_on() {
+    var errText = document.getElementById("overlay_text");
     var fname = document.getElementById("first_name");
     var lname = document.getElementById("last_name");
     var correct = true;
-    if (fname.value === "" || lname.value === "")
+    if (fname.value === "" || lname.value === "") {
+        errText.innerHTML += "\t- Provided name is invalid<br>";
         correct = false;
+    }
     var dateInput = document.getElementById("dateInput");
     var dateEntered = new Date(dateInput.value);
     var nowDate = new Date(Date.now());
-    if (isNaN(dateEntered.getTime()))
+    if (isNaN(dateEntered.getTime()) || nowDate > dateEntered) {
         correct = false;
-    if (nowDate > dateEntered)
-        correct = false;
+        errText.innerHTML += "- Entered date is invalid<br>";
+    }
     if (!correct)
         document.getElementById("overlay").style.display = "block";
 }
@@ -29,6 +32,8 @@ setTimeout(function () {
 // flight date earlier than the current one
 function overlay_off() {
     document.getElementById("overlay").style.display = "none";
+    var errText = document.getElementById("overlay_text");
+    errText.innerHTML = "Error:<br>";
 }
 function resetForm() {
     var fname = document.getElementById("first_name");
