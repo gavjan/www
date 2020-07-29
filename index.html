@@ -32,12 +32,10 @@
 
 
 
-
-
                 <div style="flex-grow: 1">
                     <img src="assets/img/plik.jpg" alt="logo firmy">
                     <h1><span style="color: black; ">List of Flights</span></h1>
-                    <p id="pierwszy" class="pierwszy"><span style="color: black; "> List of flights for Chopin airport </span></p>
+                    <p id="pierwszy" class="pierwszy"><span style="color: black; "> List of Flights </span></p>
                     <p id="drugi" class="drugi"><span style="color: black; "> Click the flight number to see the flight description </span></p>
                     <table class="table">
                         <!-- flight number, from, to, date, time -->
@@ -137,17 +135,17 @@
                     <br>
                     <hr>
                     <h1> Buy a ticket</h1>
-                    <form action="/action_page.php" id="carform">
+                    <form>
                         <label for="fname">Firstname:</label>
-                        <input class="name_field" type="text" id="fname" name="fname" > 
+                        <input class="name_field" type="text" id="first_name" name="fname" form="ticket_form">
                         <br><br>
-                        <label for="fname">Lastname:</label>
-                        <input class="name_field" type="text" id="lname" name="fname">
+                        <label for="lname">Lastname:</label>
+                        <input class="name_field" type="text" id="last_name" name="lname" form="ticket_form">
                         <br><br>
                     
                         <label for="from">From:</label>
                     
-                        <select class="select-css" id="from" name="from" form="carform">
+                        <select class="select-css" id="from" name="from" form="ticket_form">
                             <option value="warsaw">Warsaw</option>
                             <option value="krakow">Krakow</option>
                             <option value="yerevan">Yerevan</option>
@@ -158,7 +156,7 @@
                         </select>
                         <br>
                         <label for="dest">To:</label>
-                        <select class="select-css" id="dest" name="dest">
+                        <select class="select-css" id="dest" name="dest" form="ticket_form">
                             <option value="krakow">Krakow</option>
                             <option value="warsaw">Warsaw</option>
                             <option value="yerevan">Yerevan</option>
@@ -170,12 +168,12 @@
                         <br>
                         <label for="date">Date:</label>
                         <br>
-                        <input type="date" id="date" name="date">     
+                        <input type="date" id="dateInput" name="date" form="ticket_form">     
                         <br>
-                        <input type="reset" class="action_button" value="Reset">
+                        <input type="reset" onclick="resetForm()" class="action_button" value="Reset">
+                        <input type="submit" id="buy_button" onclick="overlay_on()" class="action_button" value="Buy" form="ticket_form">
                     </form>
-                    <button id="buy_button" onclick="overlay_on()" class="action_button">Buy</button>
-                    <div id="overlay">
+                    <div id="overlay" onclick="overlay_off()">
                         <div id="overlay_text">Ticket Reserved</div>
                     </div>
                     <script src='assets/js/overlay.js'> </script>
