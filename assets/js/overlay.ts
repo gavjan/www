@@ -61,10 +61,10 @@ function resetForm() {
     fname.value = "";
     lname.value = "";
 
-    let now = new Date();
-    let day = ("0" + now.getDate()).slice(-2);
-    let month = ("0" + (now.getMonth() + 1)).slice(-2);
-    let today = now.getFullYear()+"-"+(month)+"-"+(day) ;
+    const now = new Date();
+    const day = ("0" + now.getDate()).slice(-2);
+    const month = ("0" + (now.getMonth() + 1)).slice(-2);
+    const today = now.getFullYear()+"-"+(month)+"-"+(day) ;
     dateInput.value = today;
 
     from.selectedIndex = 1;
