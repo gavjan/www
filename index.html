@@ -32,7 +32,7 @@
 
 
 
-                <div style="flex-grow: 1">
+                <div style="flex-grow: 1" id="main_div">
                     <img src="assets/img/plik.jpg" alt="logo firmy">
                     <h1><span style="color: black; ">List of Flights</span></h1>
                     <p id="pierwszy" class="pierwszy"><span style="color: black; "> List of Flights </span></p>
@@ -175,15 +175,18 @@
                     </form>
                     <div id="overlay" onclick="overlay_off()">
                         <div id="overlay_text">Error:<br></div>
-                    </div>
+                    </div>let repos = 
                     <script src='assets/js/overlay.js'> </script>
                 </div>
             </div>
         </div>
         
         <footer>
-            <p>Made by: Someone Someoneski</p>
-            <p>Mail: <a href="mailto:someone@example.com">someone@example.com</a>.</p>
+            <div>
+                <img src="assets/img/load.png" style="width:10%" id="latest_commit_author">
+            </div>
+            <p>Profile pic of the author of the latest commit to the typescript repo.</p>
+            
         </footer>
     </body>
 </html>

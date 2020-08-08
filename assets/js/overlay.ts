@@ -21,16 +21,17 @@ function overlay_on() {
 
 
     if(!correct)
-        document.getElementById("overlay").style.display = "block";
+        (document.getElementById("overlay") as HTMLElement).style.display = "block";
 }
 
 let buyButton = document.getElementById("buy_button");
 // buyButton.style.display = "none";
 
-let el = document.querySelector("input[name=imie]") as HTMLInputElement;
+let elmnt = document.querySelector("input[name=imie]") as HTMLInputElement;
 
 
-document.getElementById("pierwszy").innerHTML = "List of flights for Chopin airport";
+let title = document.getElementById("pierwszy") as HTMLElement;
+title.innerHTML = "List of flights for Chopin airport";
 
 
 let newDIV = document.createElement("div");
@@ -47,7 +48,7 @@ setTimeout(() => {
   // blank passenger name or surname
   // flight date earlier than the current one
 function overlay_off() {
-    document.getElementById("overlay").style.display = "none";
+    (document.getElementById("overlay") as HTMLElement).style.display = "none";
     const errText = document.getElementById("overlay_text") as HTMLDivElement;
     errText.innerHTML = "Error:<br>";
 }
@@ -70,3 +71,49 @@ function resetForm() {
     from.selectedIndex = 1;
     dest.selectedIndex = 1;
 }
+function delayedColor(element: HTMLElement, color : string) {
+    return new Promise((resolve, reject) => {
+        element.style.backgroundColor = color
+        setTimeout(resolve,1000);
+    });
+
+}
+
+
+
+
+function rainbowColors(el: HTMLElement) {
+                delayedColor(el, "red")
+    .then(() => delayedColor(el, "yellow"))
+    .then(() => delayedColor(el, "green"))
+    .then(() => delayedColor(el, "blue"))
+    .then(() => delayedColor(el, "indigo"))
+    .then(() => delayedColor(el, "purple"))
+    .catch((err) => console.error(err));
+
+}
+function teczoweKolory(el: HTMLElement) {
+    rainbowColors(el);
+}
+
+rainbowColors(document.getElementById("main_div") as HTMLElement);
+fetch("https://api.github.com/repos/Microsoft/TypeScript/commits")
+.then(response => response.json())
+.then(data => {
+    const pic = document.getElementById("latest_commit_author") as HTMLImageElement
+    pic.src = data[0].author.avatar_url;
+    const repos_url = data[0].author.repos_url;
+
+    fetch(repos_url)
+    .then(response => response.json())
+    .then(repos => {
+        const repoNames: string[] = [];
+        repos.forEach((repo: any) =>  repoNames.push(repo.full_name));
+        repoNames.sort((a, b) => {return a.toLowerCase().localeCompare(b.toLowerCase());});
+        repoNames.forEach(x => console.log(x));
+
+    });
+
+});
+
+
