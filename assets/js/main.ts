@@ -1,7 +1,9 @@
-function overlay_on() {
+function checkCredentials(): boolean {
     const errText = document.getElementById("overlay_text") as HTMLDivElement;
     const fname = document.getElementById("first_name") as HTMLInputElement;
     const lname = document.getElementById("last_name") as HTMLInputElement;
+
+    errText.innerHTML = "Error:<br>";
     let correct = true;
 
     if(fname.value === "" || lname.value === "") {
@@ -19,9 +21,19 @@ function overlay_on() {
         errText.innerHTML += "- Entered date is invalid<br>";
     }
 
-
-    if(!correct)
-        (document.getElementById("overlay") as HTMLElement).style.display = "block";
+    const buyButtonElement = document.getElementById("buy_button") as HTMLButtonElement;
+    if(correct)
+        buyButtonElement.style.display = "inline";
+    else
+        buyButtonElement.style.display = "none";
+    return correct;
+}
+function buyTicket() {
+    if(checkCredentials()) {
+        const overlayText = document.getElementById("overlay_text") as HTMLDivElement;
+        overlayText.innerHTML = "Success";
+    }
+    (document.getElementById("overlay") as HTMLElement).style.display = "block";
 }
 
 let buyButton = document.getElementById("buy_button");
@@ -49,8 +61,6 @@ setTimeout(() => {
   // flight date earlier than the current one
 function overlay_off() {
     (document.getElementById("overlay") as HTMLElement).style.display = "none";
-    const errText = document.getElementById("overlay_text") as HTMLDivElement;
-    errText.innerHTML = "Error:<br>";
 }
 
 function resetForm() {
@@ -70,10 +80,12 @@ function resetForm() {
 
     from.selectedIndex = 1;
     dest.selectedIndex = 1;
+
+    checkCredentials();
 }
 function delayedColor(element: HTMLElement, color : string) {
     return new Promise((resolve, reject) => {
-        element.style.backgroundColor = color
+        element.style.backgroundColor = color;
         setTimeout(resolve,1000);
     });
 
@@ -116,4 +128,48 @@ fetch("https://api.github.com/repos/Microsoft/TypeScript/commits")
 
 });
 
+const rightPanel = document.getElementById("right_panel") as HTMLDivElement;
+const colors = [0,0,0];
+let channel = 0;
+let colorChangeAllowed = true;
+let clicks = 1;
+function fibonacci(n: number): Promise<number> {
+    return new Promise((resolve, reject) => {
+        let a=1;
+        let b=0;
+        let i=0;
+        let tmp;
+        while (i<=n){
+            tmp = a;
+            a = a + b;
+            b = tmp;
+            i++;
+        }
+        resolve(b);
+    });
+}
 
+function cycleColor() {
+    if(colorChangeAllowed) {
+        fibonacci(10*(clicks++))
+        .then(response => console.log(response));
+
+        colors[channel++]+=64;
+        channel%=3;
+        colors.forEach((x, i) => colors[i]%=255);
+        const pickedColor = "rgb(" + colors[0] + ", " + colors[1] + ", " + colors[2] + ")";
+        rightPanel.style.backgroundColor = pickedColor;
+    } else
+        colorChangeAllowed = true;
+
+  }
+
+
+
+function formClick() {
+    colorChangeAllowed = false;
+}
+
+const formItems = document.querySelectorAll(".form_item");
+
+formItems.forEach(element => element.setAttribute("onmousedown", "formClick()"));

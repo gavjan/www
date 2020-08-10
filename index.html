@@ -7,6 +7,7 @@
         <link rel="stylesheet" href="assets/css/main.css">
         <link rel="stylesheet" href="assets/css/select.css">
         <link rel="stylesheet" href="assets/css/overlay.css">
+        <script src="assets/js/filler.js"></script>
     </head>
     <body style="background-color: rgb(2, 34, 66);">
         <div>
@@ -27,7 +28,7 @@
                             <a href="#">🙋 FAQ</a>
                         </div>
                     </div>
-                    <script src='assets/js/dropdown.js'> </script>
+                    <script src="assets/js/dropdown.js"> </script>
                 </div>
 
 
@@ -106,7 +107,7 @@
                         </tr>
                     </table>
                 </div>
-                <div>
+                <div id="right_panel" onmouseup="cycleColor()">
                     <h1> Changed Flights</h1>
                     <table class="bad_flights">
                         <tr>
@@ -137,15 +138,15 @@
                     <h1> Buy a ticket</h1>
                     <form>
                         <label for="fname">Firstname:</label>
-                        <input class="name_field" type="text" id="first_name" name="fname" form="ticket_form">
+                        <input oninput="checkCredentials()" class="name_field form_item" type="text" id="first_name" name="fname" form="ticket_form">
                         <br><br>
                         <label for="lname">Lastname:</label>
-                        <input class="name_field" type="text" id="last_name" name="lname" form="ticket_form">
+                        <input oninput="checkCredentials()" class="name_field form_item" type="text" id="last_name" name="lname" form="ticket_form">
                         <br><br>
                     
                         <label for="from">From:</label>
                     
-                        <select class="select-css" id="from" name="from" form="ticket_form">
+                        <select onchange="checkCredentials()" class="select-css form_item" id="from" name="from" form="ticket_form">
                             <option value="warsaw">Warsaw</option>
                             <option value="krakow">Krakow</option>
                             <option value="yerevan">Yerevan</option>
@@ -156,7 +157,7 @@
                         </select>
                         <br>
                         <label for="dest">To:</label>
-                        <select class="select-css" id="dest" name="dest" form="ticket_form">
+                        <select onchange="checkCredentials()" class="select-css form_item" id="dest" name="dest" form="ticket_form">
                             <option value="krakow">Krakow</option>
                             <option value="warsaw">Warsaw</option>
                             <option value="yerevan">Yerevan</option>
@@ -168,19 +169,19 @@
                         <br>
                         <label for="date">Date:</label>
                         <br>
-                        <input type="date" id="dateInput" name="date" form="ticket_form">     
+                        <input onchange="checkCredentials()" class="form_item" type="date" id="dateInput" name="date" form="ticket_form">     
                         <br>
-                        <input type="reset" onclick="resetForm()" class="action_button" value="Reset">
-                        <input type="submit" id="buy_button" onclick="overlay_on()" class="action_button" value="Buy" form="ticket_form">
+                        <input type="reset" onclick="resetForm()" class="action_button form_item" value="Reset">
+                        <input type="submit" id="buy_button" onclick="buyTicket()" class="action_button form_item" style="display: none;" value="Buy" form="ticket_form">
                     </form>
-                    <div id="overlay" onclick="overlay_off()">
+                    <div id="overlay" class="form_item" onclick="overlay_off()">
                         <div id="overlay_text">Error:<br></div>
-                    </div>let repos = 
-                    <script src='assets/js/overlay.js'> </script>
+                    </div>
+                    <script src="assets/js/main.js"> </script>
                 </div>
             </div>
         </div>
-        
+
         <footer>
             <div>
                 <img src="assets/img/load.png" style="width:10%" id="latest_commit_author">

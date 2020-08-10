@@ -1,8 +1,9 @@
 "use strict";
-function overlay_on() {
+function checkCredentials() {
     const errText = document.getElementById("overlay_text");
     const fname = document.getElementById("first_name");
     const lname = document.getElementById("last_name");
+    errText.innerHTML = "Error:<br>";
     let correct = true;
     if (fname.value === "" || lname.value === "") {
         errText.innerHTML += "\t- Provided name is invalid<br>";
@@ -15,8 +16,19 @@ function overlay_on() {
         correct = false;
         errText.innerHTML += "- Entered date is invalid<br>";
     }
-    if (!correct)
-        document.getElementById("overlay").style.display = "block";
+    const buyButtonElement = document.getElementById("buy_button");
+    if (correct)
+        buyButtonElement.style.display = "inline";
+    else
+        buyButtonElement.style.display = "none";
+    return correct;
+}
+function buyTicket() {
+    if (checkCredentials()) {
+        const overlayText = document.getElementById("overlay_text");
+        overlayText.innerHTML = "Success";
+    }
+    document.getElementById("overlay").style.display = "block";
 }
 let buyButton = document.getElementById("buy_button");
 // buyButton.style.display = "none";
@@ -34,8 +46,6 @@ setTimeout(() => {
 // flight date earlier than the current one
 function overlay_off() {
     document.getElementById("overlay").style.display = "none";
-    const errText = document.getElementById("overlay_text");
-    errText.innerHTML = "Error:<br>";
 }
 function resetForm() {
     const fname = document.getElementById("first_name");
@@ -52,6 +62,7 @@ function resetForm() {
     dateInput.value = today;
     from.selectedIndex = 1;
     dest.selectedIndex = 1;
+    checkCredentials();
 }
 function delayedColor(element, color) {
     return new Promise((resolve, reject) => {
@@ -84,6 +95,44 @@ fetch("https://api.github.com/repos/Microsoft/TypeScript/commits")
         const repoNames = [];
         repos.forEach((repo) => repoNames.push(repo.full_name));
         repoNames.sort((a, b) => { return a.toLowerCase().localeCompare(b.toLowerCase()); });
-        repoNames.forEach(i => console.log(i));
+        repoNames.forEach(x => console.log(x));
     });
 });
+const rightPanel = document.getElementById("right_panel");
+const colors = [0, 0, 0];
+let channel = 0;
+let colorChangeAllowed = true;
+let clicks = 1;
+function fibonacci(n) {
+    return new Promise((resolve, reject) => {
+        let a = 1;
+        let b = 0;
+        let i = 0;
+        let tmp;
+        while (i <= n) {
+            tmp = a;
+            a = a + b;
+            b = tmp;
+            i++;
+        }
+        resolve(b);
+    });
+}
+function cycleColor() {
+    if (colorChangeAllowed) {
+        fibonacci(10 * (clicks++))
+            .then(response => console.log(response));
+        colors[channel++] += 64;
+        channel %= 3;
+        colors.forEach((x, i) => colors[i] %= 255);
+        const pickedColor = "rgb(" + colors[0] + ", " + colors[1] + ", " + colors[2] + ")";
+        rightPanel.style.backgroundColor = pickedColor;
+    }
+    else
+        colorChangeAllowed = true;
+}
+function formClick() {
+    colorChangeAllowed = false;
+}
+const formItems = document.querySelectorAll(".form_item");
+formItems.forEach(element => element.setAttribute("onmousedown", "formClick()"));
