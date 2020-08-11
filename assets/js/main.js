@@ -1,4 +1,18 @@
 "use strict";
+let buyButton = document.getElementById("buy_button");
+// buyButton.style.display = "none";
+let elmnt = document.querySelector("input[name=imie]");
+let title = document.getElementById("pierwszy");
+title.innerHTML = "List of flights for Chopin airport";
+let newDIV = document.createElement("div");
+document.body.appendChild(newDIV);
+newDIV.innerHTML = "<span class=\"msg\">Newly created div.</span>";
+newDIV.style.color = "blue";
+setTimeout(() => {
+    console.log("No już wreszcie.");
+}, 2000);
+// blank passenger name or surname
+// flight date earlier than the current one
 function checkCredentials() {
     const errText = document.getElementById("overlay_text");
     const fname = document.getElementById("first_name");
@@ -30,20 +44,6 @@ function buyTicket() {
     }
     document.getElementById("overlay").style.display = "block";
 }
-let buyButton = document.getElementById("buy_button");
-// buyButton.style.display = "none";
-let elmnt = document.querySelector("input[name=imie]");
-let title = document.getElementById("pierwszy");
-title.innerHTML = "List of flights for Chopin airport";
-let newDIV = document.createElement("div");
-document.body.appendChild(newDIV);
-newDIV.innerHTML = "<span class=\"msg\">Newly created div.</span>";
-newDIV.style.color = "blue";
-setTimeout(() => {
-    console.log("No już wreszcie.");
-}, 2000);
-// blank passenger name or surname
-// flight date earlier than the current one
 function overlay_off() {
     document.getElementById("overlay").style.display = "none";
 }
@@ -98,11 +98,6 @@ fetch("https://api.github.com/repos/Microsoft/TypeScript/commits")
         repoNames.forEach(x => console.log(x));
     });
 });
-const rightPanel = document.getElementById("right_panel");
-const colors = [0, 0, 0];
-let channel = 0;
-let colorChangeAllowed = true;
-let clicks = 1;
 function fibonacci(n) {
     return new Promise((resolve, reject) => {
         let a = 1;
@@ -118,6 +113,11 @@ function fibonacci(n) {
         resolve(b);
     });
 }
+const rightPanel = document.getElementById("right_panel");
+const colors = [0, 0, 0];
+let channel = 0;
+let colorChangeAllowed = true;
+let clicks = 1;
 function cycleColor() {
     if (colorChangeAllowed) {
         fibonacci(10 * (clicks++))

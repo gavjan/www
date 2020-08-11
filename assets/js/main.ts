@@ -1,3 +1,25 @@
+let buyButton = document.getElementById("buy_button");
+// buyButton.style.display = "none";
+
+let elmnt = document.querySelector("input[name=imie]") as HTMLInputElement;
+
+let title = document.getElementById("pierwszy") as HTMLElement;
+title.innerHTML = "List of flights for Chopin airport";
+
+let newDIV = document.createElement("div");
+document.body.appendChild(newDIV);
+newDIV.innerHTML = "<span class=\"msg\">Newly created div.</span>";
+newDIV.style.color = "blue"
+
+setTimeout(() => {
+    console.log("No już wreszcie.");
+}, 2000);
+
+
+
+
+// blank passenger name or surname
+// flight date earlier than the current one
 function checkCredentials(): boolean {
     const errText = document.getElementById("overlay_text") as HTMLDivElement;
     const fname = document.getElementById("first_name") as HTMLInputElement;
@@ -10,7 +32,6 @@ function checkCredentials(): boolean {
         errText.innerHTML += "\t- Provided name is invalid<br>";
         correct = false;
     }
-
 
     const dateInput = document.getElementById("dateInput") as HTMLInputElement;
     const dateEntered = new Date(dateInput.value) as Date;
@@ -35,34 +56,9 @@ function buyTicket() {
     }
     (document.getElementById("overlay") as HTMLElement).style.display = "block";
 }
-
-let buyButton = document.getElementById("buy_button");
-// buyButton.style.display = "none";
-
-let elmnt = document.querySelector("input[name=imie]") as HTMLInputElement;
-
-
-let title = document.getElementById("pierwszy") as HTMLElement;
-title.innerHTML = "List of flights for Chopin airport";
-
-
-let newDIV = document.createElement("div");
-document.body.appendChild(newDIV);
-newDIV.innerHTML = "<span class=\"msg\">Newly created div.</span>";
-newDIV.style.color = "blue"
-
-
-setTimeout(() => {
-    console.log("No już wreszcie.");
-  }, 2000);
-
-
-  // blank passenger name or surname
-  // flight date earlier than the current one
 function overlay_off() {
     (document.getElementById("overlay") as HTMLElement).style.display = "none";
 }
-
 function resetForm() {
     const fname = document.getElementById("first_name") as HTMLInputElement;
     const lname = document.getElementById("last_name") as HTMLInputElement;
@@ -83,6 +79,10 @@ function resetForm() {
 
     checkCredentials();
 }
+
+
+
+
 function delayedColor(element: HTMLElement, color : string) {
     return new Promise((resolve, reject) => {
         element.style.backgroundColor = color;
@@ -90,10 +90,6 @@ function delayedColor(element: HTMLElement, color : string) {
     });
 
 }
-
-
-
-
 function rainbowColors(el: HTMLElement) {
                 delayedColor(el, "red")
     .then(() => delayedColor(el, "yellow"))
@@ -107,8 +103,11 @@ function rainbowColors(el: HTMLElement) {
 function teczoweKolory(el: HTMLElement) {
     rainbowColors(el);
 }
-
 rainbowColors(document.getElementById("main_div") as HTMLElement);
+
+
+
+
 fetch("https://api.github.com/repos/Microsoft/TypeScript/commits")
 .then(response => response.json())
 .then(data => {
@@ -123,16 +122,12 @@ fetch("https://api.github.com/repos/Microsoft/TypeScript/commits")
         repos.forEach((repo: any) =>  repoNames.push(repo.full_name));
         repoNames.sort((a, b) => {return a.toLowerCase().localeCompare(b.toLowerCase());});
         repoNames.forEach(x => console.log(x));
-
     });
-
 });
 
-const rightPanel = document.getElementById("right_panel") as HTMLDivElement;
-const colors = [0,0,0];
-let channel = 0;
-let colorChangeAllowed = true;
-let clicks = 1;
+
+
+
 function fibonacci(n: number): Promise<number> {
     return new Promise((resolve, reject) => {
         let a=1;
@@ -148,7 +143,11 @@ function fibonacci(n: number): Promise<number> {
         resolve(b);
     });
 }
-
+const rightPanel = document.getElementById("right_panel") as HTMLDivElement;
+const colors = [0,0,0];
+let channel = 0;
+let colorChangeAllowed = true;
+let clicks = 1;
 function cycleColor() {
     if(colorChangeAllowed) {
         fibonacci(10*(clicks++))
@@ -162,14 +161,9 @@ function cycleColor() {
     } else
         colorChangeAllowed = true;
 
-  }
-
-
-
+}
 function formClick() {
     colorChangeAllowed = false;
 }
-
 const formItems = document.querySelectorAll(".form_item");
-
 formItems.forEach(element => element.setAttribute("onmousedown", "formClick()"));
